@@ -14,7 +14,7 @@ module.exports.createUser = function(req, res, next) {
 	});
 };
 
-module.exports.showLoginForm = funnction(req, res, next) {
+module.exports.showLoginForm = function(req, res, next) {
 	res.render('login');
 };
 
