@@ -13,3 +13,12 @@ module.exports.createUser = function(req, res, next) {
 		});
 	});
 };
+
+module.exports.showLoginForm = funnction(req, res, next) {
+	res.render('login');
+};
+
+module.exports.createSession = passport.authenticate('local', {
+	successRedirect: ('/'),
+	failureredirect: ('/login');
+});
