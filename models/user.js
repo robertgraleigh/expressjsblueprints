@@ -15,3 +15,11 @@ var userSchema = new mongoose.Schema({
 		default: Date.now
 	}
 });
+
+userSchema.pre('save', function(next) {
+	if (!this.isModified('password')) {
+		return next();
+	}
+	this.password = User.encryptPassword(this.password);
+	next();
+});
