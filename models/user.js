@@ -17,6 +17,8 @@ var userSchema = new mongoose.Schema({
 	}
 });
 
+var User = mongoose.model('User', userSchema);
+
 userSchema.pre('save', function(next) {
 	if (!this.isModified('password')) {
 		return next();
@@ -33,6 +35,6 @@ User.schema.path('password').validate(function(password) {
 	return validator.isLength(password, 8);
 });
 
-var User = mongoose.model('User', userSchema);
+
 
 module.exports = User;
